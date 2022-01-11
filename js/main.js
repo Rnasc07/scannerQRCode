@@ -24,7 +24,7 @@ setTimeout(function(){
 
             document.getElementById('infoCameras').innerHTML = conteudoParaInjetar;
 
-            //scanner.start(cameras[0]);
+            scanner.start(cameras[2]);
         } else {
             document.getElementById('infoCameras').innerHTML = "Cameras não encontradas!";
         }
