@@ -19,13 +19,13 @@ setTimeout(function(){
 
         if(cameras.length > 0){
             cameras.forEach(function(item, index){
-                conteudoParaInjetar += `ID Camera ${index}: ${item} <br>`;
+                conteudoParaInjetar += `ID Camera ${index}: ${item.id} <br>`;
             });
 
-            scanner.start(cameras[0]);
-        }
+            document.getElementById('infoCameras').innerHTML = conteudoParaInjetar;
 
-        document.getElementById('infoCameras').innerHTML = conteudoParaInjetar;
+            scanner.start(cameras[2]);
+        }
 
     }).catch(function (error) {
         document.getElementById('infoCameras').innerHTML = `Desculpe! Ocorreu o seguinte erro: ${error}`;
