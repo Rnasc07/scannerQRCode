@@ -1,9 +1,6 @@
-// Elemento de preview
-const elCam = document.getElementById('videoCam');
-
 // Inicialização da lib e vínculo ao elemento necessário
 const scanner = new Instascan.Scanner({
-    video: elCam,
+    video: document.getElementById('preview'),
 });
 
 // Listener... toda vez que a cam fazer algun escaneamento
@@ -22,7 +19,7 @@ setTimeout(function(){
                 conteudoParaInjetar += `ID Camera ${index}: ${item.name} <br>`;
             });
 
-            document.getElementById('infoCameras').innerHTML = conteudoParaInjetar;
+            document.getElementById('infoCameras').innerHTML = conteudoParaInjetar + "teste 7";
 
             scanner.start(cameras[2]);
         } else {
