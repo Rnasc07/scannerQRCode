@@ -19,12 +19,14 @@ setTimeout(function(){
 
         if(cameras.length > 0){
             cameras.forEach(function(item, index){
-                conteudoParaInjetar += `ID Camera ${index}: ${item.id} <br>`;
+                conteudoParaInjetar += `ID Camera ${index}: ${item.name} <br>`;
             });
 
             document.getElementById('infoCameras').innerHTML = conteudoParaInjetar;
 
-            scanner.start(cameras[2]);
+            //scanner.start(cameras[0]);
+        } else {
+            document.getElementById('infoCameras').innerHTML = "Cameras não encontradas!";
         }
 
     }).catch(function (error) {
