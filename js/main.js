@@ -8,7 +8,7 @@ const scanner = new Instascan.Scanner({
 
 // Listener... toda vez que a cam fazer algun escaneamento
 scanner.addListener('scan', content => {
-   console.log(content);
+    document.getElementById('infoCameras').innerHTML = content;
 });
 
 setTimeout(function(){
@@ -17,11 +17,14 @@ setTimeout(function(){
     Instascan.Camera.getCameras().then( cameras => {
         let conteudoParaInjetar = '';
 
-        cameras.forEach(function(item, index){
-            conteudoParaInjetar += `ID Camera ${index}: ${item.id} <br>`;
-        });
-
-        document.getElementById('infoCameras').innerHTML = conteudoParaInjetar;
+        if(cameras.length > 0){
+           scanner.start(cameras[0]);
+        }
+        // cameras.forEach(function(item, index){
+        //     conteudoParaInjetar += `ID Camera ${index}: ${item} <br>`;
+        // });
+        //
+        // document.getElementById('infoCameras').innerHTML = conteudoParaInjetar;
     }).catch(function (error) {
         document.getElementById('infoCameras').innerHTML = `Desculpe! Ocorreu o seguinte erro: ${error}`;
     });
