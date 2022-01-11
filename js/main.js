@@ -18,13 +18,16 @@ setTimeout(function(){
         let conteudoParaInjetar = '';
 
         if(cameras.length > 0){
-           scanner.start(cameras[0]);
+            cameras.forEach(function(item, index){
+                conteudoParaInjetar += `ID Camera ${index}: ${item} <br>`;
+            });
+
+            scanner.start(cameras[1]);
         }
-        // cameras.forEach(function(item, index){
-        //     conteudoParaInjetar += `ID Camera ${index}: ${item} <br>`;
-        // });
-        //
-        // document.getElementById('infoCameras').innerHTML = conteudoParaInjetar;
+
+        if(conteudoParaInjetar != ''){
+            document.getElementById('infoCameras').innerHTML = conteudoParaInjetar;
+        }
     }).catch(function (error) {
         document.getElementById('infoCameras').innerHTML = `Desculpe! Ocorreu o seguinte erro: ${error}`;
     });
